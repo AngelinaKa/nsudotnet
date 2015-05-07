@@ -11,13 +11,13 @@ namespace Guesser
         {
             Random rand = new Random();
             Random RandomNumOfPhrase = new Random();
-            int Number = rand.Next(0, 10);
+            int Number = rand.Next(0, 100);
             string name;
             Console.WriteLine("Hi! Say your name to start the game");
             name = Console.ReadLine();
-            Console.WriteLine("Hello, {0}! I thought of a number from 0 to 10, guess what?", name);
+            Console.WriteLine("Hello, {0}! I thought of a number from 0 to 100, guess what?", name);
             DateTime date1 = DateTime.Now;
-            Console.WriteLine(date1);
+            //Console.WriteLine(date1);
             string Input ;
             int NumOfAttempts = 1;
             int CounterOfEveryFourthAttempt = 1;
@@ -55,7 +55,7 @@ namespace Guesser
             if (Supposed_Number == Number)
             {
                 DateTime date2 = DateTime.Now;
-                Console.WriteLine(date2);
+                //Console.WriteLine(date2);
                 TimeSpan interval = new TimeSpan();
                   interval = date2 - date1;
                   string time = interval.ToString();
@@ -64,8 +64,7 @@ namespace Guesser
             Console.WriteLine("you won, you've done {0} attempts",NumOfAttempts);
         }
            Console.WriteLine(HistoryOfAttempts[0]);
-          int n=1
-              ;
+          int n=1;
             while (n!= NumOfAttempts+1)
             {Console.WriteLine(HistoryOfAttempts[n]);
             n++;}
