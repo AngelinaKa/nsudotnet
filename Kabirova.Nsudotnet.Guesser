@@ -11,11 +11,11 @@ namespace Guesser
         {
             Random rand = new Random();
             Random RandomNumOfPhrase = new Random();
-            int Number = rand.Next(0, 10);
+            int Number = rand.Next(0, 100);
             string name;
             Console.WriteLine("Hi! Say your name to start the game");
             name = Console.ReadLine();
-            Console.WriteLine("Hello, {0}! I thought of a number from 0 to 10, guess what?", name);
+            Console.WriteLine("Hello, {0}! I thought of a number from 0 to 100, guess what?", name);
             string Input ;
             int NumOfAttempts = 1;
             int CounterOfEveryFourthAttempt = 1;
