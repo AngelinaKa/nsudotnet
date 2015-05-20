@@ -12,6 +12,7 @@ namespace Guesser
             Random rand = new Random();
             Random RandomNumOfPhrase = new Random();
             int Number = rand.Next(0, 100);
+<<<<<<< HEAD
 
             Console.WriteLine("Hi! Say your name to start the game");
             string name = Console.ReadLine();
@@ -19,6 +20,15 @@ namespace Guesser
             
             DateTime date1 = DateTime.Now;         
 
+=======
+            string name;
+            Console.WriteLine("Hi! Say your name to start the game");
+            name = Console.ReadLine();
+            Console.WriteLine("Hello, {0}! I thought of a number from 0 to 100, guess what?", name);
+            DateTime date1 = DateTime.Now;
+            //Console.WriteLine(date1);
+            string Input ;
+>>>>>>> 13eb570fe0ef7ddcb47e62e3bba0c5b29193a63d
             int NumOfAttempts = 1;
             int CounterOfEveryFourthAttempt = 1;
             string[] HistoryOfAttempts = new string[1000];
@@ -62,11 +72,16 @@ namespace Guesser
             if (Supposed_Number == Number)
             {
                 DateTime date2 = DateTime.Now;
+<<<<<<< HEAD
+=======
+                //Console.WriteLine(date2);
+>>>>>>> 13eb570fe0ef7ddcb47e62e3bba0c5b29193a63d
                 TimeSpan interval = new TimeSpan();
                 interval = date2 - date1;
                 int TimeInSeconds = (int)interval.TotalSeconds;
                                             
                 HistoryOfAttempts[NumOfAttempts] = Supposed_Number.ToString() + "=";
+<<<<<<< HEAD
                 Console.WriteLine("You won, you've done {0} attempts", NumOfAttempts);
                 Console.WriteLine("You've been trying to guess for {0} seconds",TimeInSeconds);
             }
@@ -78,6 +93,15 @@ namespace Guesser
                 Console.WriteLine(HistoryOfAttempts[n]);
                 n++;
             }
+=======
+            Console.WriteLine("you won, you've done {0} attempts",NumOfAttempts);
+        }
+           Console.WriteLine(HistoryOfAttempts[0]);
+          int n=1;
+            while (n!= NumOfAttempts+1)
+            {Console.WriteLine(HistoryOfAttempts[n]);
+            n++;}
+>>>>>>> 13eb570fe0ef7ddcb47e62e3bba0c5b29193a63d
             Console.ReadKey();
         }
     }
