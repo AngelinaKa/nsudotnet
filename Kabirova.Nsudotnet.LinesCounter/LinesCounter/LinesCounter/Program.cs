@@ -10,11 +10,15 @@ namespace LinesCounter
     {
         static void Main(string[] args)
         {
-            // Выбор директории и поиск файлов с заданным разрешением
-            string path = @"C:\Users\Ангелина.notebook\Desktop";
+            // Выбор директории и поиск файлов с заданным расширением
+            Console.WriteLine("Choose directory:");
+            string path = Console.ReadLine();
+            Console.WriteLine("Choose type of files:");
+            string type = Console.ReadLine();
+
             DirectoryInfo dir = new DirectoryInfo(path);
-            FileInfo[] csFiles = dir.GetFiles("*.cs", SearchOption.AllDirectories);
-            Console.WriteLine("{0} .cs files found in {1}", csFiles.Length,path);
+            FileInfo[] csFiles = dir.GetFiles(type, SearchOption.AllDirectories);
+            Console.WriteLine("{0} {1} files found in {2}", csFiles.Length,type,path);
             Console.WriteLine();
             
             // Поиск и подсчет пустых строк и строк с комментариями
@@ -24,7 +28,7 @@ namespace LinesCounter
                 int Count = 0;
                 foreach (string str in NewFile)
                 {
-                    if (String.IsNullOrWhiteSpace(str) == true || str.StartsWith("// ") == true)
+                    if (String.IsNullOrWhiteSpace(str) == true || str.StartsWith("// ") == true || str.Contains(" // "))
                         Count++;
                 }
                 Console.WriteLine("Full name of file: {0}", f.FullName);
