@@ -39,9 +39,8 @@ namespace RssToEmail
         static void Main(string[] args)
         {
             ChannelClass channel = new ChannelClass();
-            // Console.WriteLine("Введите адрес RSS-потока");
-            // string RSSLink = Console.ReadLine();
-            string RSSLink = "http://feeds.bbci.co.uk/news/system/latest_published_content/rss.xml";
+            Console.WriteLine("Введите адрес RSS-потока");
+            string RSSLink = Console.ReadLine();
 
             XmlDocument doc = new XmlDocument();
             doc.Load(RSSLink);
