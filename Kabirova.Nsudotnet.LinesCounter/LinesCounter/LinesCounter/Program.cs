@@ -28,7 +28,23 @@ namespace LinesCounter
                 int Count = 0;
                 foreach (string str in NewFile)
                 {
-                    if (String.IsNullOrWhiteSpace(str) == true || str.StartsWith("// ") == true || str.Contains(" // "))
+                    // Поиск и подсчет строк с комментариями
+                    if (str.Contains("//"))
+                    {
+                    int index = str.IndexOf("//");
+                    int i = 0;
+                    int c = 0;
+                    while (i != index)
+                    {
+                        if (str == " ")
+                            c++;
+                    }
+                            i++;
+                    if (c == index-1) 
+                        Count++;
+                    }
+
+                    if (String.IsNullOrWhiteSpace(str) == true || str.StartsWith("// ") == true)
                         Count++;
                 }
                 Console.WriteLine("Full name of file: {0}", f.FullName);
