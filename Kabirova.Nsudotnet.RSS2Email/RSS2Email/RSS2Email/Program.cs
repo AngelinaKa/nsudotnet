@@ -38,12 +38,20 @@ namespace RssToEmail
 
         static void Main(string[] args)
         {
+            SendRSSToEmail();
+        }
+        static void SendRSSToEmail()
+        {
             ChannelClass channel = new ChannelClass();
-            Console.WriteLine("Введите адрес RSS-потока");
-            string RSSLink = Console.ReadLine();
+            try
+            {
+                Console.WriteLine("Введите адрес RSS-потока");
+                string RSSLink = Console.ReadLine();
 
-            XmlDocument doc = new XmlDocument();
-            doc.Load(RSSLink);
+            
+                XmlDocument doc = new XmlDocument();
+                doc.Load(RSSLink);
+            
 
             XmlNodeList nodeList;
             XmlNode root = doc.DocumentElement;
@@ -81,6 +89,7 @@ namespace RssToEmail
                         }
                     }
                 }
+            
             // Отправка сообщения
             MailMessage mail = new MailMessage();
             Console.WriteLine("Введите адрес отправителя");
@@ -100,6 +109,15 @@ namespace RssToEmail
             client.DeliveryMethod = SmtpDeliveryMethod.Network;
             client.Send(mail);
             mail.Dispose();
+           }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                SendRSSToEmail();
+            } 
+           
+            Console.ReadKey();
+
         }
     }
 }
